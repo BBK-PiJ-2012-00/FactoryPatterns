@@ -5,6 +5,7 @@ package tests;
 
 import static org.junit.Assert.*; 
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import vehicles.Airplane;
@@ -23,7 +24,12 @@ import vehicles.IDontFly;
  */
 public class AirplaneTest {
 
-	private FlyingFactory flyingFactory;
+	private static FlyingFactory flyingFactory;
+	
+	@BeforeClass
+	public static void onlyOnce() {
+		flyingFactory = new FlyingFactory();
+	}
 
 	@Test
 	public void test1() {
