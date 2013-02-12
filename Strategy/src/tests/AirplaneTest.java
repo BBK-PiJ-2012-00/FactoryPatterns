@@ -23,13 +23,15 @@ import vehicles.IDontFly;
  */
 public class AirplaneTest {
 
+	private FlyingFactory flyingFactory;
+
 	@Test
 	public void test1() {
 				
 		String expectedOutput = "Like a fighter jet";
 		String stringReturned = null;
 		
-		Flying fly = new IFlyLikeFJ();
+		Flying fly = flyingFactory.createFlying("Fighter Jet");
 		LiftOff liftOff = new ILiftOffV();
 
 		Airplane classUnderTest = new Airplane(liftOff,fly);
