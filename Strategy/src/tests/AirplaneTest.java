@@ -55,7 +55,7 @@ public class AirplaneTest {
 		String expectedOutput = "I don't Fly";
 		String stringReturned = null;
 		
-		Flying fly = new IDontFly();
+		Flying fly = flyingFactory.createFlying("Model Airplane");
 		LiftOff liftOff = new ILiftOffV();
 
 		Airplane classUnderTest = new Airplane(liftOff,fly);
