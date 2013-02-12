@@ -16,7 +16,7 @@ import vehicles.ILiftOffH;
 import vehicles.LiftOff;
 import vehicles.IFlyLikePP;
 import vehicles.ILiftOffV;
-import vehicles.IDontFly;
+//import vehicles.IDontFly;
 
 /**
  * @author oded
@@ -25,10 +25,12 @@ import vehicles.IDontFly;
 public class AirplaneTest {
 
 	private static FlyingFactory flyingFactory;
+	private static LiftOffFactory liftOffFactory;
 	
 	@BeforeClass
 	public static void onlyOnce() {
 		flyingFactory = new FlyingFactory();
+		liftOffFactory = new LiftOffFactory();
 	}
 
 	@Test
@@ -38,7 +40,7 @@ public class AirplaneTest {
 		String stringReturned = null;
 		
 		Flying fly = flyingFactory.createFlying("Fighter Jet");
-		LiftOff liftOff = new ILiftOffV();
+		LiftOff liftOff = liftOffFactory.createLiftOff("Fighter Jet");
 
 		Airplane classUnderTest = new Airplane(liftOff,fly);
 
